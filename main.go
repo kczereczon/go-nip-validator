@@ -47,7 +47,7 @@ func validateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintf(w, "Got: %v", req)
+	http.Error(w, "Invalid type", http.StatusBadRequest)
 }
 
 func main() {

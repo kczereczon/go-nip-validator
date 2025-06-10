@@ -1,13 +1,6 @@
 package validator
 
-import (
-	"fmt"
-	"os"
-)
-
 func ValidateNip(nip string) bool {
-
-	fmt.Fprintf(os.Stdout, "Nip: %s\n", nip)
 
 	if len(nip) != 10 {
 		return false
@@ -26,8 +19,5 @@ func ValidateNip(nip string) bool {
 	if checksum == 10 {
 		checksum = 0
 	}
-
-	fmt.Fprintf(os.Stdout, "Checksum: %d, Nip: %d Sum: %d\n", checksum, int(nip[9]-'0'), sum)
-
 	return checksum == int(nip[9]-'0')
 }
